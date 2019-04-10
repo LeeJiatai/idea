@@ -1,0 +1,7 @@
+{
+  "name": "lijt",
+  "description": "lijt",
+  "dependencies": {
+    "socket.io": "^2.2.0"
+  }
+}
