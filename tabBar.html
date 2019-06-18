@@ -26,14 +26,14 @@
     let viewDiv = view.getElementsByTagName('li')
 
     for(let i = 0; i < navDiv.length; i++) {
-        navDiv[i].index = i
         navDiv[i].onclick = function() {
             for(let j = 0; j < viewDiv.length; j++) {
                 navDiv[j].className = ''
                 viewDiv[j].className = ''
             }
+            console.log(35, i)
             this.className = 'active'
-            viewDiv[this.index].className = 'show'
+            viewDiv[i].className = 'show'
         }
     }
 
