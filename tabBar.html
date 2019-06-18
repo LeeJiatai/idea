@@ -1,0 +1,42 @@
+<!DOCTYPE doctype html>
+<html>
+<head>
+    <title>选项卡</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/tab.css">
+</head>
+<body>
+    <div class="wrap">
+        <ul id="nav">
+            <li class="active">111</li>
+            <li>222</li>
+        </ul>
+        <ul id="view">
+            <li class="show">one</li>
+            <li>two</li>
+        </ul>
+    </div>
+</body>
+<script>
+    let nav = document.getElementById('nav')
+    let navDiv = nav.getElementsByTagName('li')
+    let view = document.getElementById('view')
+    let viewDiv = view.getElementsByTagName('li')
+
+    console.log(24, navDiv)
+
+    for(let i = 0; i < navDiv.length; i++) {
+        navDiv[i].index = i
+        navDiv[i].onclick = function() {
+            console.log(27, this);
+            for(let j = 0; j < viewDiv.length; j++) {
+                navDiv[j].className = ''
+                viewDiv[j].className = ''
+            }
+            this.className = 'active'
+            viewDiv[this.index].className = 'show'
+        }
+    }
+
+</script>
+</html>
