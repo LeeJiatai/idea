@@ -7,28 +7,27 @@
 </head>
 <body>
     <div class="wrap">
-        <ul id="nav">
+        for循环选项卡
+        <ul class="nav" id="nav">
             <li class="active">111</li>
             <li>222</li>
         </ul>
-        <ul id="view">
+        <ul class="view" id="view">
             <li class="show">one</li>
             <li>two</li>
         </ul>
     </div>
 </body>
 <script>
+    // for循环切换逻辑
     let nav = document.getElementById('nav')
     let navDiv = nav.getElementsByTagName('li')
     let view = document.getElementById('view')
     let viewDiv = view.getElementsByTagName('li')
 
-    console.log(24, navDiv)
-
     for(let i = 0; i < navDiv.length; i++) {
         navDiv[i].index = i
         navDiv[i].onclick = function() {
-            console.log(27, this);
             for(let j = 0; j < viewDiv.length; j++) {
                 navDiv[j].className = ''
                 viewDiv[j].className = ''

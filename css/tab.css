@@ -2,15 +2,18 @@
     height: auto;
     width: 400px;
     margin: 50px auto;
+    color: #888888;
+    line-height: 40rpx;
+    text-align: center;
 }
 
-#nav {
+.nav {
     height: 40px;
     width: 100%;
     display: flex;
     border: 1px solid #dedfe0
 }
-#nav li {
+.nav li {
     height: 100%;
     flex: 1;
     text-align: center;
@@ -23,12 +26,13 @@
     background-color: #dedfe0;
 }
 
-#view {
+.view {
     width: 100%;
     height: 300px;
     border: 1px solid #dedfe0;
+    border-top: none;
 }
-#view li {
+.view li {
     width: 100%;
     height: 100%;
     text-align: center;
@@ -36,7 +40,45 @@
     display: none;
     transition: all 0.3s;
 }
-
 .show {
     display: block !important;
+}
+
+.box {
+    width: 400px;
+    height: auto;
+    margin: 40px auto;
+    border: 1px solid #dedfe0;
+}
+.box ul {
+    position: relative;
+    height: 40px;
+    display: flex;
+}
+.box ul li {
+    flex: 1;
+    height: 100%;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+.box ul li .active {
+    color: #ffffff;
+    background-color: #dedfe0;
+}
+
+.scene {
+    width: 400px;
+    height: 300px;
+    border-top: 1px solid #dedfe0;
+}
+.scene > div {
+    width: 100%;
+    height: 100%;
+    display: none;
+    text-align: center;
+    line-height: 300px;
+}
+.scene > div .show {
+    display: block;
 }
