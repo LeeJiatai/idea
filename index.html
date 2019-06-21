@@ -4,10 +4,15 @@
 <title>Socket.IO chat</title>
 </head>
 <body>
-
+	<button id="button">Click</button>
 </body>
-<script src="js/index.js"></script>
+<script
+  src="http://code.jquery.com/jquery-3.4.1.slim.js"></script>
 <script>
-	console.log(11, dataType(11))
+	var o = new Object();
+	o.f = function() {
+		console.log(this === o)
+	}.bind(o)
+	$('#button').on('click', o.f)
 </script>
 </html>
