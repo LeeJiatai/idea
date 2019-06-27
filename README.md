@@ -5,3 +5,5 @@
 - 1、`obj.__proto__`
 - 2、`obj.constructor.prototype`
 - 3、`Object.getPrototypeOf(obj)`
+
+#排序sort.js

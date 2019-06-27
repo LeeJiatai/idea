@@ -1,18 +1,14 @@
 <!DOCTYPE doctype html>
 <html>
 <head>
-<title>Socket.IO chat</title>
+<title>Idear</title>
 </head>
 <body>
-	<button id="button">Click</button>
+	
 </body>
-<script
-  src="http://code.jquery.com/jquery-3.4.1.slim.js"></script>
+<script src='js/sort.js'></script>
 <script>
-	var o = new Object();
-	o.f = function() {
-		console.log(this === o)
-	}.bind(o)
-	$('#button').on('click', o.f)
+	var a = [5, 8, 2, 1, 6, 3, 9, 4, 0]
+	console.log(12, bubbleSort(a));
 </script>
 </html>
