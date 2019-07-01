@@ -16,6 +16,7 @@ let bubbleSort = array => {
 
 //选择排序
 let selectionSort = array => {
+    console.log(19, array)
     let len = array.length
     let min, minIndex;
     if(len <= 1) {
@@ -32,6 +33,7 @@ let selectionSort = array => {
         if (min != array[i]) {
             [array[minIndex], array[i]] = [array[i], array[minIndex]]
         }
+        console.log(35, array)
     }
     return array
 }
@@ -54,26 +56,23 @@ let insertSort = array => {
     return array
 }
 
-//希尔排序（缩小增量排序
+//希尔排序（缩小增量排序)
 let shellSort = array => {
-    let len = array.length
-    let index = Math.floor(len / 2) //比较步长
-    let j, temp
-    console.log(56, array, index)
-    if(len <= 1) {
-        return array
-    }
-
-    while (index > 0){
-        for (var i = index; i < len; i++){//遍历起点后移，保证每个数在该步长下参与且只参与1此排序
-          temp = array[i];
-          for (j = i; j >= index && array[j - index] > temp;){//等步长数列执行插入排序
-            array[j] = array[j - index];
-            j -= index;
-            array[j] = temp;
-          }
+    console.log(61, array);
+    var len = array.length, gap = parseInt(len / 2), j, temp;
+    while(gap > 0){
+        for(let i = gap; i < len; i++){
+            temp = array[i];
+            j = i - gap;
+            console.log(64, gap, i, j)
+            while(j >= 0 && temp < array[j]){
+                array[j + gap] = array[j];
+                j = j - gap;
+            }
+            array[j + gap] = temp;
+            console.log(72, array)
         }
-        index = Math.floor(index / 2);//步长减半
-      }
-    return array
+        gap = parseInt(gap / 2);
+    }
+    return array;
 }
