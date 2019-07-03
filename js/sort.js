@@ -58,21 +58,46 @@ let insertSort = array => {
 
 //希尔排序（缩小增量排序)
 let shellSort = array => {
-    console.log(61, array);
     var len = array.length, gap = parseInt(len / 2), j, temp;
     while(gap > 0){
         for(let i = gap; i < len; i++){
             temp = array[i];
             j = i - gap;
-            console.log(64, gap, i, j)
             while(j >= 0 && temp < array[j]){
                 array[j + gap] = array[j];
                 j = j - gap;
             }
             array[j + gap] = temp;
-            console.log(72, array)
         }
         gap = parseInt(gap / 2);
     }
     return array;
+}
+
+//快速排序
+let quickSort = array => {
+    var a = new Date();
+    console.log(79, array)
+    let len = array.length
+
+    if (len <= 1 ) {
+        return array
+    }
+
+    let pointIndex = Math.floor(len / 2);
+    let point = array.splice(pointIndex, 1)[0];
+    console.log(87, pointIndex, point, array);
+    let left = [];
+    let right = [];
+    for(let i = 0; i < array.length; i++) {
+        if(array[i] < point) {
+            left.push(array[i]) 
+        } else {
+            right.push(array[i])
+        }
+    }
+    console.log(98, left, right)
+    return quickSort(left).concat([point], quickSort(right));
+    var b = new Date()
+    console.log(b -a);
 }
