@@ -1,6 +1,6 @@
 {
-  "name": "go",
-  "description": "go",
+  "name": "idea",
+  "description": "JavaScript idea",
   "dependencies": {
     "express": "^4.15.2",
     "socket.io": "^2.2.0"
