@@ -56,7 +56,7 @@ let insertSort = array => {
     return array
 }
 
-//希尔排序（缩小增量排序)
+//希尔排序（缩小增量排序=>插入排序)
 let shellSort = array => {
     var len = array.length, gap = parseInt(len / 2), j, temp;
     while(gap > 0){
