@@ -7,3 +7,4 @@
 - 3、`Object.getPrototypeOf(obj)`
 
 # 排序sort.js
+- 希尔排序相当于插入排序，间距逐渐减少
