@@ -3,12 +3,54 @@
 <head>
 <title>Idear</title>
 </head>
+<style>
+	
+</style>
 <body>
 	
 </body>
 <script src='js/sort.js'></script>
 <script>
-	var a = [5, 8, 2, 1, 6, 3, 7, 4, 0]
-	console.log(12, quickSort(a));
+	//观察者模式
+	class Observer {
+		constructor(fns = []) {
+			this.fns = fns
+		}
+
+		//订阅
+		subscribe(fn) {
+			this.fns.push(fn)
+		}
+
+		//取消订阅
+		unsubscribe(fn) {
+			this.fns = this.fns.filter((x) => {
+				return x !== fn
+			})
+		}
+
+		//更新
+		update() {
+			this.fns.forEach(fn => {
+				fn(...arg)
+			})
+		}
+	}
+
+	var o = new Observer()
+	console.log(o)
+	var f1 = function(data) {
+		console.log(`f1 ${data} updating`)
+	}
+	var f2 = function(data) {
+		console.log(`f2 ${data} updating`)
+	}
+	o.subscribe(f1)
+	o.subscribe(f2)
+	o.update('一起')
+	o.unsubscribe(f1)
+	o.update('留下')
+	o.unsubscribe(f2)
+	o.update('all')
 </script>
 </html>

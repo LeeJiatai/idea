@@ -6,35 +6,55 @@
     <link rel="stylesheet" href="./css/tab.css">
 </head>
 <body>
-    <div class="wrap">
-        for循环选项卡
-        <ul class="nav" id="nav">
-            <li class="active">111</li>
-            <li>222</li>
-        </ul>
-        <ul class="view" id="view">
-            <li class="show">one</li>
-            <li>two</li>
-        </ul>
-    </div>
+
 </body>
 <script>
-    // for循环切换逻辑
-    let nav = document.getElementById('nav')
-    let navDiv = nav.getElementsByTagName('li')
-    let view = document.getElementById('view')
-    let viewDiv = view.getElementsByTagName('li')
+    // function A(x) {
+    //     let ele = x;
+    //     return function B() {
+    //         let outer = ele
+    //         return outer
+    //     }
+    // }
 
-    for(let i = 0; i < navDiv.length; i++) {
-        navDiv[i].onclick = function() {
-            for(let j = 0; j < viewDiv.length; j++) {
-                navDiv[j].className = ''
-                viewDiv[j].className = ''
-            }
-            this.className = 'active'
-            viewDiv[i].className = 'show'
-        }
+    function watch(context, obj) {
+        Object.keys(obj).forEach(key => {
+            definiReactive(context.data, key, context.data[key], function(val, old) {
+                obj[key](val, old)
+            })
+        })
     }
 
+    function definiReactive(data, key, val, fn) {
+        Object.defineProperty(data, key, {
+            configurable: true,
+            enumerable: true,
+            get() {
+                return val
+            },
+            set(newVal) {
+                fn && fn(newVal, val)
+                val = newVal
+            }
+        })
+    }
+
+
+    let a = {
+        data: {
+            name: 'lijiatai',
+            age: 100,
+        },
+        init() {
+            watch(this, {
+                name: function(val, oldVal) {
+                    console.log(`name changed from ${oldVal} to ${val}`)
+                },
+                age: function() {}
+            })
+        }
+    } 
+   a.init()
+   a.data.name = 1123
 </script>
 </html>
