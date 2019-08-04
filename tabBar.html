@@ -9,13 +9,14 @@
 
 </body>
 <script>
-    // function A(x) {
-    //     let ele = x;
-    //     return function B() {
-    //         let outer = ele
-    //         return outer
-    //     }
-    // }
+    //闭包
+    function A(x) {
+        let ele = x;
+        return function B() {
+            let outer = ele
+            return outer
+        }
+    }
 
     function watch(context, obj) {
         Object.keys(obj).forEach(key => {
