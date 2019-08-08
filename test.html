@@ -1,0 +1,33 @@
+<!DOCTYPE doctype html>
+<html>
+<head>
+    <title>测试</title>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/tab.css">
+</head>
+<style>
+    .demo {
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        border: 1px solid red;
+    }
+</style>
+<body>
+
+</body>
+<script src="js/dom.js"></script>
+<script>
+    var div = createDom.div({class: 'demo'}, 
+        'hello',
+        createDom.a({href: 'https://www.baidu.com/'}, '百度'),
+        'I using now',
+        createDom.ul({}, 
+            createDom.li({}, 'one'),
+            createDom.li({}, 'two'),
+            createDom.li({}, 'three')
+        )
+    )
+    document.body.appendChild(div);
+</script>
+</html>
