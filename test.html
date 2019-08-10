@@ -18,16 +18,7 @@
 </body>
 <script src="js/dom.js"></script>
 <script>
-    var div = createDom.div({class: 'demo'}, 
-        'hello',
-        createDom.a({href: 'https://www.baidu.com/'}, '百度'),
-        'I using now',
-        createDom.ul({}, 
-            createDom.li({}, 'one'),
-            createDom.li({}, 'two'),
-            createDom.li({}, 'three')
-        )
-    )
-    document.body.appendChild(div);
+    var a = createArray(1,2,3)
+    console.log(a, a[-2])
 </script>
 </html>

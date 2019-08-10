@@ -1,3 +1,4 @@
+//创建层级dom
 let createDom = new Proxy({}, {
     get(target, property) {
         return function(attrs = {}, ...children) {
@@ -16,3 +17,20 @@ let createDom = new Proxy({}, {
         }
     }
 })
+
+//自定义Array取值
+let createArray = function(...elements) {
+    let handler = {
+        get: function(target, property, receiver) {
+            let index = Number(property);
+            if (index < 0) {
+                property = String(elements.length + index)
+            } 
+            return Reflect.get(target, property, receiver)
+        }
+    };
+
+    let target = []
+    target.push(...elements);
+    return new Proxy(target, handler)
+}
