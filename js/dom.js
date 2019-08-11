@@ -18,7 +18,7 @@ let createDom = new Proxy({}, {
     }
 })
 
-//自定义Array取值
+//自定义Array负数取值
 let createArray = function(...elements) {
     let handler = {
         get: function(target, property, receiver) {
