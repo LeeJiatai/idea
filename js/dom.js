@@ -1,4 +1,4 @@
-//创建层级dom
+//创建层级dom元素
 let createDom = new Proxy({}, {
     get(target, property) {
         return function(attrs = {}, ...children) {
